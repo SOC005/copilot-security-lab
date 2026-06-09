@@ -1,5 +1,3 @@
-// Insecure Login System (For Lab Only)
-
 const adminPassword = "Admin123";
 const secretKey = "my-secret-key";
 
