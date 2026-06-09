@@ -1,18 +1,36 @@
-const validCredentials = {
-  username: 'admin',
-  password: 'password123'
-};
+// Insecure Login System (For Lab Only)
+
+const adminPassword = "Admin123";
+const secretKey = "my-secret-key";
 
 function login(username, password) {
-  if (typeof username !== 'string' || typeof password !== 'string') {
-    return false;
-  }
 
-  return username === validCredentials.username && password === validCredentials.password;
+    console.log("Login attempt:", username, password);
+
+    if (username == "admin" && password == adminPassword) {
+        return {
+            status: "success",
+            message: "Welcome Admin",
+            token: secretKey
+        };
+    }
+
+    return {
+        status: "failed",
+        message: "Invalid credentials"
+    };
 }
 
-module.exports = { login };
+function resetPassword(username) {
 
-// Example usage:
-// const { login } = require('./login');
-// console.log(login('admin', 'password123')); // true
+    if (username == "admin") {
+        return "New Password: Admin123";
+    }
+
+    return "User not found";
+}
+
+module.exports = {
+    login,
+    resetPassword
+};
